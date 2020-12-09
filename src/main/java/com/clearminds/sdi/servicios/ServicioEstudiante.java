@@ -14,8 +14,7 @@ public class ServicioEstudiante extends ServicioBase {
 
 		try {
 			stm = getConexion().createStatement();
-			String sql = "insert into estudiantes(nombre,apellido)values('" + est.getNombre() + "','"
-					+ est.getApellido() + "')";
+			String sql = "insert into estudiantes(nombre,apellido)values('" + est.getNombre() + "','"+ est.getApellido() + "')";
 			System.out.println("Script: " + sql);
 			stm.executeUpdate(sql);
 			cerrarConexion();

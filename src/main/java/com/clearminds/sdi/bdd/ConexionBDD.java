@@ -14,7 +14,6 @@ public class ConexionBDD {
 		String pass = leerPropiedad("password");
 		String url = leerPropiedad("urlConexion");
 		Connection con = null;
-		
 		try {
 			con = DriverManager.getConnection(url + ";user=" + user + ";password=" + pass + ";");
 		} catch (SQLException e) {
@@ -31,6 +30,9 @@ public class ConexionBDD {
 	public static String leerPropiedad(String propiedad) {
 		Properties p = new Properties();
 		String s = null;
+		File f=new File("conexion.properties");
+		System.out.println("ruta:"+f.getAbsoluteFile());
+
 		try {
 			p.load(new FileReader("conexion.properties"));
 			s = p.getProperty(propiedad);
