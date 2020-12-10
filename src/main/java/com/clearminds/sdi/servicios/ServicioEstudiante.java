@@ -14,7 +14,8 @@ public class ServicioEstudiante extends ServicioBase {
 
 		try {
 			stm = getConexion().createStatement();
-			String sql = "insert into estudiantes(nombre,apellido,edad)values('" + est.getNombre() + "','"+ est.getApellido() + "',"+est.getEdad()+")";
+			String sql = "insert into estudiantes(nombre,apellido,edad,fecha_modificacion)values('" + est.getNombre() + "','"
+					+ est.getApellido() + "'," + est.getEdad() + ",'" +DateUtil.fecha() +"')";
 			System.out.println("Script: " + sql);
 			stm.executeUpdate(sql);
 			cerrarConexion();
@@ -23,8 +24,8 @@ public class ServicioEstudiante extends ServicioBase {
 			throw new BDDException("Error al insertar estudiante");
 		}
 	}
-	
-	public void actualizarEstudiante(Estudiante est) throws BDDException{
+
+	public void actualizarEstudiante(Estudiante est) throws BDDException {
 		Statement stm = null;
 
 		abrirConexion();
@@ -32,7 +33,8 @@ public class ServicioEstudiante extends ServicioBase {
 
 		try {
 			stm = getConexion().createStatement();
-			String sql = "update estudiantes set nombre='"+est.getNombre()+"', apellido='"+est.getApellido()+"', edad="+est.getEdad()+" where id="+est.getId();
+			String sql = "update estudiantes set nombre='" + est.getNombre() + "', apellido='" + est.getApellido()
+					+ "', edad=" + est.getEdad() +", fecha_modificacion='"+DateUtil.fecha()+"' where id=" + est.getId();
 			System.out.println("Script: " + sql);
 			stm.executeUpdate(sql);
 			cerrarConexion();

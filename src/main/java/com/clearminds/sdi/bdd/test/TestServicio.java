@@ -2,6 +2,7 @@ package com.clearminds.sdi.bdd.test;
 
 import com.clearminds.sdi.dtos.Estudiante;
 import com.clearminds.sdi.excepciones.BDDException;
+import com.clearminds.sdi.servicios.DateUtil;
 import com.clearminds.sdi.servicios.ServicioEstudiante;
 
 public class TestServicio {
